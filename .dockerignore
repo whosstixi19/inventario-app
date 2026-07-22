@@ -1,8 +1,9 @@
 node_modules
 npm-debug.log
+data/products.json
 .git
 .gitignore
-*.md
-data/products.json
-data/test-products.json
-docs
+README.md
+docs/
+k8s/
+*.pdf

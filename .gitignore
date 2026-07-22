@@ -1,0 +1,7 @@
+node_modules/
+npm-debug.log
+.DS_Store
+data/products.json
+data/test-products.json
+k8s/secret.yaml
+Informe_Reflexion_DORA.pdf

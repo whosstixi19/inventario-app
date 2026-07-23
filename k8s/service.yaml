@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: cicd-inentario-app
+  name: cicd-inventario-app
 spec:
   type: NodePort
   selector:

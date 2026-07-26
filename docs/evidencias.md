@@ -1,34 +1,34 @@
-¬# Evidencias - Persona A: Jose Tixi
+# Evidencias - Persona A: Jose Tixi
 
 ## Docker Build
-![docker-build.png](../Informe/Imagenes/docker-build.png)
+![docker-build.png](./Imagenes/docker-build.png)
 
 ## Health Check
-![health-check.png](../Informe/Imagenes/health-check.png)
+![health-check.png](./Imagenes/health-check.png)
 
 ## Version
-![version-check.png](../Informe/Imagenes/version-check.png)
+![version-check.png](./Imagenes/version-check.png)
 
 ## Products List
-![products-list.png](../Informe/Imagenes/products-list.png)
+![products-list.png](./Imagenes/products-list.png)
 
 ## Web UI
-![web-ui.png](../Informe/Imagenes/web-ui.png)
+![web-ui.png](./Imagenes/web-ui.png)
 
 ## Minikube Rollout
-![minikube-rollout.png](../Informe/Imagenes/minikube-rollout.png)
+![minikube-rollout.png](./Imagenes/minikube-rollout.png)
 
 ## Port Forward
-![port-forward.png](../Informe/Imagenes/port-forward.png)
+![port-forward.png](./Imagenes/port-forward.png)
 
 ## Secret Applied
-![secret-applied.png](../Informe/Imagenes/secret-applied.png)
+![secret-applied.png](./Imagenes/secret-applied.png)
 
 ## Secret Env
-![secret-env.png](../Informe/Imagenes/secret-env.png)
+![secret-env.png](./Imagenes/secret-env.png)
 
 ## Actions Pipeline
-![actions-pipeline.png](../Informe/Imagenes/actions-pipeline.png)
+![actions-pipeline.png](./Imagenes/actions-pipeline.png)
 
 ## GHCR Image
-![ghcr-image.png](../Informe/Imagenes/ghcr-image.png)
+![ghcr-image.png](./Imagenes/ghcr-image.png)

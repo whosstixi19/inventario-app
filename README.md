@@ -15,7 +15,7 @@ inventario-app/
 ├── k8s/
 │   ├── deployment.yaml             # Deployment con RollingUpdate + probes + secretKeyRef
 │   ├── service.yaml                # Service tipo NodePort
-│   ├── secrets.yaml                # Secret con API_KEY (no versionado en Git)
+│   ├── secret.yaml                # Secret con API_KEY (no versionado en Git)
 │   └── blue-green/                 # Estrategia de despliegue (Persona B)
 ├── public/                         # Frontend estático
 ├── docs/                           # Evidencias
@@ -138,7 +138,7 @@ minikube start --driver=docker
 ### 5.2 Aplicar manifiestos
 
 ```bash
-kubectl apply -f k8s/secrets.yaml
+kubectl apply -f k8s/secret.yaml
 kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
 ```
@@ -160,11 +160,11 @@ kubectl get svc
 
 ```bash
 minikube ip
-kubectl get svc cicd-inentario-app
+kubectl get svc cicd-inventario-app
 # Ejemplo: curl http://192.168.49.2:30272/health
-curl http://$(minikube ip):$(kubectl get svc cicd-inentario-app -o jsonpath='{.spec.ports[0].nodePort}')/health
-curl http://$(minikube ip):$(kubectl get svc cicd-inentario-app -o jsonpath='{.spec.ports[0].nodePort}')/version
-curl http://$(minikube ip):$(kubectl get svc cicd-inentario-app -o jsonpath='{.spec.ports[0].nodePort}')/api/products
+curl http://$(minikube ip):$(kubectl get svc cicd-inventario-app -o jsonpath='{.spec.ports[0].nodePort}')/health
+curl http://$(minikube ip):$(kubectl get svc cicd-inventario-app -o jsonpath='{.spec.ports[0].nodePort}')/version
+curl http://$(minikube ip):$(kubectl get svc cicd-inventario-app -o jsonpath='{.spec.ports[0].nodePort}')/api/products
 ```
 
 ---
@@ -173,7 +173,7 @@ curl http://$(minikube ip):$(kubectl get svc cicd-inentario-app -o jsonpath='{.s
 
 ### 6.1 Manejo de Secretos
 
-**Archivo:** `k8s/secrets.yaml`
+**Archivo:** `k8s/secret.yaml`
 
 Se creó un Secret de Kubernetes con una credencial ficticia `API_KEY`:
 
@@ -198,7 +198,7 @@ env:
         key: API_KEY
 ```
 
-> **Nota:** `k8s/secrets.yaml` está en `.gitignore` para no versionar credenciales reales en Git. En el repositorio solo se incluye un archivo de ejemplo (`k8s/secret.yaml.example`).
+> **Nota:** `k8s/secret.yaml` está en `.gitignore` para no versionar credenciales reales en Git. En el repositorio solo se incluye un archivo de ejemplo (`k8s/secret.yaml.example`).
 
 ---
 

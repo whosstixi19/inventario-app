@@ -43,7 +43,7 @@ jobs:
 
 
   build-push:
-    needs: build-test
+    needs: [build-test, trivy-scan]
     runs-on: ubuntu-latest
     permissions:
       contents: read

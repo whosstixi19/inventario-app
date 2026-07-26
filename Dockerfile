@@ -28,6 +28,9 @@ COPY package*.json ./
 # Instalar solo dependencias de producción
 RUN npm ci --only=production
 
+# El runtime no necesita npm; retirarlo reduce la superficie de escaneo.
+RUN npm cache clean --force && rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx /root/.npm
+
 # Copiar el código de la aplicación (incluida la carpeta public/)
 COPY server.js db.js ./
 COPY public/ ./public/

@@ -25,6 +25,8 @@ spec:
           ports:
             - containerPort: 3000
           env:
+            - name: STARTUP_DELAY_SECONDS
+              value: "15"
             - name: PORT
               value: "3000"
             - name: API_KEY

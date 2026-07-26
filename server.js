@@ -1,3 +1,6 @@
+const STARTUP_DELAY = parseInt(process.env.STARTUP_DELAY_SECONDS || '0', 10);
+const startupTime = Date.now();
+
 const express = require('express');
 const path = require('path');
 const os = require('os');
@@ -13,6 +16,10 @@ function createApp() {
   app.use(express.static(path.join(__dirname, 'public')));
 
   app.get('/health', (req, res) => {
+    if (STARTUP_DELAY > 0 && (Date.now() - startupTime) < STARTUP_DELAY * 1000) {
+      return res.status(503).json({ status: 'not ready', reason: 'arrancando...' });
+    }
+
     if (SIMULATE_FAILURE || !db.canAccessDb()) {
       return res.status(500).json({ status: 'error', reason: 'fallo simulado o base de datos no accesible' });
     }

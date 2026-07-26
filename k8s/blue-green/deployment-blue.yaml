@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventario-app-blue
+  labels:
+    app: inventario-app
+    version: blue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: inventario-app
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: inventario-app
+        version: blue
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/whosstixi19/inventario-app:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: APP_COLOR
+              value: "blue"
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: inventario-secret
+                  key: API_KEY
+          readinessProbe:
+            httpGet: { path: /health, port: 3000 }
+            initialDelaySeconds: 2
+            periodSeconds: 3
+          livenessProbe:
+            httpGet: { path: /health, port: 3000 }
+            initialDelaySeconds: 5
+            periodSeconds: 10

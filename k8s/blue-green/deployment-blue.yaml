@@ -25,6 +25,8 @@ spec:
           env:
             - name: APP_COLOR
               value: "blue"
+            - name: STARTUP_DELAY_SECONDS
+              value: "15"
             - name: API_KEY
               valueFrom:
                 secretKeyRef:

@@ -32,3 +32,21 @@
 
 ## GHCR Image
 ![ghcr-image.png](./Imagenes/ghcr-image.png)
+
+---
+
+# Evidencias - Persona B: Angel Cardenas
+
+**Correo:** acardenasl2@est.ups.edu.ec
+
+## Blue-Green Traffic Cut
+![blue-green-cut.png](./Imagenes/blue-green-cut.png)
+
+## Readiness with Startup Delay
+![startup-delay.png](./Imagenes/startup-delay.png)
+
+## Trivy Security Scan
+![trivy-scan.png](./Imagenes/trivy-scan.png)
+
+## Data Loss Demonstration
+![data-loss.png](./Imagenes/data-loss.png)

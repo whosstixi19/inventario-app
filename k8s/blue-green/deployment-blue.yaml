@@ -19,7 +19,8 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/whosstixi19/inventario-app:latest
+          image: inventario-app-final:test
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           env:
@@ -40,3 +41,10 @@ spec:
             httpGet: { path: /health, port: 3000 }
             initialDelaySeconds: 5
             periodSeconds: 10
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "128Mi"

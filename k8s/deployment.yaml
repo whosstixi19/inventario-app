@@ -21,7 +21,8 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/whosstixi19/inventario-app:latest
+          image: inventario-app-final:test
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           env:

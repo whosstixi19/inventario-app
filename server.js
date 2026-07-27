@@ -9,6 +9,7 @@ const db = require('./db');
 const APP_VERSION = process.env.APP_VERSION || 'v1';
 const APP_COLOR = process.env.APP_COLOR || 'blue';
 const SIMULATE_FAILURE = process.env.SIMULATE_FAILURE === 'true';
+const API_KEY = process.env.API_KEY || 'no-secret-key';
 
 function createApp() {
   const app = express();
@@ -32,6 +33,10 @@ function createApp() {
       color: APP_COLOR,
       hostname: os.hostname(),
     });
+  });
+
+  app.get('/api/secret-check', (req, res) => {
+    res.status(200).json({ secret_configured: API_KEY !== 'no-secret-key' });
   });
 
   app.get('/api/products', (req, res) => {
@@ -73,6 +78,7 @@ if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log('Servidor escuchando en puerto ' + PORT + ' (version=' + APP_VERSION + ', color=' + APP_COLOR + ')');
+    console.log('[Config] API Key configurada desde Secret: ' + API_KEY.substring(0, 5) + '***');
   });
 }
 
